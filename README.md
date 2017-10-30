@@ -1,5 +1,7 @@
 # Cordova Plugin ShareSDK
 
+把qq空间也实现了下
+
 ### 什么是Cordova Plugin ShareSDK
 
 Cordova Plugin ShareSDK封装了[ShareSDK](http://sharesdk.mob.com/)的android和ios平台的分享功能。在hybird app开发中可以方便的完成分享功能。如:ionic2等。目前支持：微信，朋友圈，微博，QQ好友，QQ空间，新浪微博的分享。
@@ -229,13 +231,14 @@ ShareSDK：提供ClientType，PlatformType，ShareType，ResponseState常量。�
 | ShareSDK.ClientType.SinaWeibo | 新浪微博客户端 |
 | ShareSDK.ClientType.Wechat    | 微信客户端   |
 | ShareSDK.ClientType.QQ        | QQ客户端   |
+| ShareSDK.ClientType.QZone        | QQ空间客户端   |
 
 
 
 | 平台类型（分享到指定平台）                        | 说明    |
 | ------------------------------------ | ----- |
 | ShareSDK.PlatformType.QQFriend       | QQ好友  |
-| ShareSDK.PlatformType.QZone（暂不支持）    | QQ空间  |
+| ShareSDK.PlatformType.QZone    | QQ空间  |
 | ShareSDK.PlatformType.Copy           | 拷贝    |
 | ShareSDK.PlatformType.WechatSession  | 微信好友  |
 | ShareSDK.PlatformType.WechatTimeline | 微信朋友圈 |
