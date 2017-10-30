@@ -52,7 +52,7 @@
         <!--QQ jar-->
         <lib-file src="src/android/ShareSDK/libs/ShareSDK-QQ-2.8.0.jar" />
         <!--QZone jar-->
-        <lib-file src="src/android/ShareSDK/libs/ShareSDK-QZone-3.1.0.jar" />
+        <lib-file src="src/android/ShareSDK/libs/ShareSDK-QZone-2.8.0.jar" />
         <!--添加权限-->
         <config-file target="AndroidManifest.xml" parent="/*">
             <uses-permission android:name="android.permission.GET_TASKS" />

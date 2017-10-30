@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zhaolin0801/cordova-plugin-sharesdk.git"
+    "url": "git+https://github.com/hzjianshi/cordova-plugin-sharesdk.git"
   },
   "keywords": [
     "cordova",
@@ -25,9 +25,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zhaolin0801/cordova-plugin-sharesdk/issues"
+    "url": "https://github.com/hzjianshi/cordova-plugin-sharesdk/issues"
   },
-  "homepage": "https://github.com/zhaolin0801/cordova-plugin-sharesdk#readme",
+  "homepage": "https://github.com/hzjianshi/cordova-plugin-sharesdk#readme",
   "engines": [
     {
       "name": "cordova-android",

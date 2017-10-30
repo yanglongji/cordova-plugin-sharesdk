@@ -7,7 +7,6 @@
 Cordova Plugin ShareSDK封装了[ShareSDK](http://sharesdk.mob.com/)的android和ios平台的分享功能。在hybird app开发中可以方便的完成分享功能。如:ionic2等。目前支持：微信，朋友圈，微博，QQ好友，QQ空间，新浪微博的分享。
 
 
-
 ### 为什么使用Cordova Plugin ShareSDK 
 
 [ShareSDK](http://sharesdk.mob.com/)几乎完成了所有社交平台的分享功能的封装，但是都是基于原生app、web等。小型创业公司基于成本等其他因素，逐步开始使用hybird混合应用开发，基于html完成app开发，然后用cordova打包构建出各平台app。为了能在hybird app中快速集成分享功能，您需要使用此插件，简单的几行代码就可完成分享功能。
@@ -57,7 +56,7 @@ function shareImages(platformType) {
                    function(fail){});
 }
 
-/** 分享网页 */
+/** 分享网页 (注：QQ空间的APP不支持分享网页) */
 function shareWebPage(platformType) {
     var icon = 'https://github.com/zhaolin0801/cordova-sharesdk-demo/blob/master/www/img/Wechat-QRcode.jpeg?raw=true';
     var title = '这是网页的标题';

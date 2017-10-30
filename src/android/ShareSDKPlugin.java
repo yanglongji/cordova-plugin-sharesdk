@@ -3,6 +3,8 @@ package behring.cordovasharesdk;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.util.Log;
+
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaPlugin;
@@ -113,6 +115,7 @@ public class ShareSDKPlugin extends CordovaPlugin {
         } else if(action.equals("isInstallClient")) {
             int clientType = args.optInt(0);
             isInstallClient(clientType, callbackContext);
+            return true;
         }
         return false;
     }
@@ -149,12 +152,12 @@ public class ShareSDKPlugin extends CordovaPlugin {
             case WECHAT_CLIENT:
                 platform = ShareSDK.getPlatform(Wechat.NAME);
                 break;
-          case QQ_CLIENT:
-            platform = ShareSDK.getPlatform(QQ.NAME);
-            break;
+            case QQ_CLIENT:
+                platform = ShareSDK.getPlatform(QQ.NAME);
+                break;
             case QZONE_CLIENT:
-            platform = ShareSDK.getPlatform(QZone.NAME);
-            break;
+                platform = ShareSDK.getPlatform(QZone.NAME);
+                break;
             default:
                 break;
         }
@@ -167,7 +170,6 @@ public class ShareSDKPlugin extends CordovaPlugin {
             PluginResult pluginResult = new PluginResult(PluginResult.Status.ERROR);
             callbackContext.sendPluginResult(pluginResult);
         }
-
     }
 
     private void copyLink(JSONObject shareInfo, final CallbackContext callbackContext) {
@@ -248,6 +250,7 @@ public class ShareSDKPlugin extends CordovaPlugin {
         platform.share(sp);
     }
 
+    //QQ空间App不支持分享网页
     private void shareWebPage(int platformType, JSONObject shareInfo, final CallbackContext callbackContext) {
         Platform.ShareParams sp = null;
         Platform platform = null;
@@ -265,10 +268,6 @@ public class ShareSDKPlugin extends CordovaPlugin {
           case SSDKPlatformTypeWeibo:
             sp = new SinaWeibo.ShareParams();
             platform = ShareSDK.getPlatform(SinaWeibo.NAME);
-            break;
-            case SSDKPlatformTypeQZone:
-            sp = new QZone.ShareParams();
-            platform = ShareSDK.getPlatform(QZone.NAME);
             break;
             case SSDKPlatformTypeQQFriend:
                 sp = new QQ.ShareParams();
