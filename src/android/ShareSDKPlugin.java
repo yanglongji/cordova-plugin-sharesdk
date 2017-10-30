@@ -17,6 +17,7 @@ import cn.sharesdk.framework.PlatformActionListener;
 import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.sina.weibo.SinaWeibo;
 import cn.sharesdk.tencent.qq.QQ;
+import cn.sharesdk.tencent.qzone.QZone;
 import cn.sharesdk.wechat.friends.Wechat;
 import cn.sharesdk.wechat.moments.WechatMoments;
 
@@ -27,7 +28,8 @@ import cn.sharesdk.wechat.moments.WechatMoments;
 public class ShareSDKPlugin extends CordovaPlugin {
     private static final int SINA_WEIBO_CLIENT = 1;
     private static final int WECHAT_CLIENT = 2;
-    private static final int QQ_CLIENT = 3;
+  private static final int QQ_CLIENT = 3;
+  private static final int QZONE_CLIENT = 4;
 
     /**平台和分享类型的值参考ShareSDK ios源码中的值*/
     /** 新浪微博 */
@@ -147,9 +149,12 @@ public class ShareSDKPlugin extends CordovaPlugin {
             case WECHAT_CLIENT:
                 platform = ShareSDK.getPlatform(Wechat.NAME);
                 break;
-            case QQ_CLIENT:
-                platform = ShareSDK.getPlatform(QQ.NAME);
-                break;
+          case QQ_CLIENT:
+            platform = ShareSDK.getPlatform(QQ.NAME);
+            break;
+            case QZONE_CLIENT:
+            platform = ShareSDK.getPlatform(QZone.NAME);
+            break;
             default:
                 break;
         }
@@ -191,6 +196,10 @@ public class ShareSDKPlugin extends CordovaPlugin {
                 sp = new SinaWeibo.ShareParams();
                 platform = ShareSDK.getPlatform(SinaWeibo.NAME);
                 break;
+          case SSDKPlatformTypeQZone:
+            sp = new QZone.ShareParams();
+            platform = ShareSDK.getPlatform(QZone.NAME);
+            break;
             case SSDKPlatformTypeQQFriend:
                 sp = new QQ.ShareParams();
                 platform = ShareSDK.getPlatform(QQ.NAME);
@@ -222,10 +231,14 @@ public class ShareSDKPlugin extends CordovaPlugin {
                 sp = new SinaWeibo.ShareParams();
                 platform = ShareSDK.getPlatform(SinaWeibo.NAME);
                 break;
+          case SSDKPlatformTypeQZone:
+            sp = new QZone.ShareParams();
+            platform = ShareSDK.getPlatform(QZone.NAME);
+            break;
             case SSDKPlatformTypeQQFriend:
-                sp = new QQ.ShareParams();
-                platform = ShareSDK.getPlatform(QQ.NAME);
-                break;
+            sp = new QQ.ShareParams();
+            platform = ShareSDK.getPlatform(QQ.NAME);
+            break;
             default:
                 break;
         }
@@ -249,10 +262,14 @@ public class ShareSDKPlugin extends CordovaPlugin {
                 sp.setShareType(Platform.SHARE_WEBPAGE);
                 platform = ShareSDK.getPlatform(WechatMoments.NAME);
                 break;
-            case SSDKPlatformTypeWeibo:
-                sp = new SinaWeibo.ShareParams();
-                platform = ShareSDK.getPlatform(SinaWeibo.NAME);
-                break;
+          case SSDKPlatformTypeWeibo:
+            sp = new SinaWeibo.ShareParams();
+            platform = ShareSDK.getPlatform(SinaWeibo.NAME);
+            break;
+            case SSDKPlatformTypeQZone:
+            sp = new QZone.ShareParams();
+            platform = ShareSDK.getPlatform(QZone.NAME);
+            break;
             case SSDKPlatformTypeQQFriend:
                 sp = new QQ.ShareParams();
                 platform = ShareSDK.getPlatform(QQ.NAME);

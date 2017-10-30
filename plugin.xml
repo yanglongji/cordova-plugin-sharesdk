@@ -51,6 +51,8 @@
         <lib-file src="src/android/ShareSDK/libs/ShareSDK-SinaWeibo-2.8.0.jar" />
         <!--QQ jar-->
         <lib-file src="src/android/ShareSDK/libs/ShareSDK-QQ-2.8.0.jar" />
+        <!--QZone jar-->
+        <lib-file src="src/android/ShareSDK/libs/ShareSDK-QZone-3.1.0.jar" />
         <!--添加权限-->
         <config-file target="AndroidManifest.xml" parent="/*">
             <uses-permission android:name="android.permission.GET_TASKS" />
@@ -81,9 +83,12 @@
         <edit-config file="assets/ShareSDK.xml" target="/DevInfor/SinaWeibo" mode="overwrite">
             <SinaWeibo Id="1" SortId="1" AppKey="$WEIBO_APP_ID" AppSecret="$WEIBO_APP_SECRET" RedirectUrl="$WEIBO_REDIRECT_URL" ShareByAppClient="true" Enable="true" />
         </edit-config>
-        <!-- ShareByAppClient标识是否使用微博客户端分享，默认是false -->
+        <!-- ShareByAppClient标识是否使用QQ客户端分享，默认是false -->
         <edit-config file="assets/ShareSDK.xml" target="/DevInfor/QQ" mode="overwrite">
             <QQ Id="7" SortId="7" AppId="$QQ_ANDROID_APP_ID" AppKey="$QQ_ANDROID_APP_KEY" ShareByAppClient="true" Enable="true" />
+        </edit-config>
+        <edit-config file="assets/ShareSDK.xml" target="/DevInfor/QZone" mode="overwrite">
+            <QZone Id="3" SortId="3" AppId="$QQ_ANDROID_APP_ID" AppKey="$QQ_ANDROID_APP_KEY" Enable="true" />
         </edit-config>
 
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
@@ -128,13 +133,30 @@
                 <string>sinaweibohdsso</string>
                 <string>weibosdk</string>
                 <string>weibosdk2.5</string>
-                <!--qq friend-->
-                <string>mqqOpensdkSSoLogin</string>
-                <string>mqqopensdkapiV2</string>
-                <string>mqqopensdkapiV3</string>
-                <string>wtloginmqq2</string>
-                <string>mqq</string>
-                <string>mqqapi</string>
+                <!-- QQ、Qzone URL Scheme 白名单-->
+    <string>mqqapi</string>
+    <string>mqq</string>
+    <string>mqqOpensdkSSoLogin</string>
+    <string>mqqconnect</string>
+    <string>mqqopensdkdataline</string>
+    <string>mqqopensdkgrouptribeshare</string>
+    <string>mqqopensdkfriend</string>
+    <string>mqqopensdkapi</string>
+    <string>mqqopensdkapiV2</string>
+    <string>mqqopensdkapiV3</string>
+    <string>mqzoneopensdk</string>
+    <string>wtloginmqq</string>
+    <string>wtloginmqq2</string>
+    <string>mqqwpa</string>
+    <string>mqzone</string>
+    <string>mqzonev2</string>
+    <string>mqzoneshare</string>
+    <string>wtloginqzone</string>
+    <string>mqzonewx</string>
+    <string>mqzoneopensdkapiV2</string>
+    <string>mqzoneopensdkapi19</string>
+    <string>mqzoneopensdkapi</string>
+    <string>mqzoneopensdk</string>
             </array>
         </config-file>
         <!--配置URL Scheme reference http://bbs.mob.com/thread-567-1-1.html-->
