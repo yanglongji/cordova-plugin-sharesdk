@@ -50,8 +50,8 @@ function shareText(platformType) {
 /** 分享图片，多张使用数组 */
 function shareImages(platformType) {
     var images = ['https://github.com/zhaolin0801/cordova-sharesdk-demo/blob/master/www/img/Wechat-QRcode.jpeg?raw=true','https://github.com/zhaolin0801/cordova-sharesdk-demo/blob/master/www/img/Wechat-QRcode.jpeg?raw=true'];
-    var shareInfo = {images:images};
-    sharesdk.share(platformType, ShareSDK.ShareType.Image, shareInfo,
+    var shareInfo = {images:images}; // 单张 用 {image:image}  //多张android里面看了下 其实没实现 要用的自己实现下
+    sharesdk.share(platformType, ShareSDK.ShareType.Image, shareInfo,
                    function(success){},
                    function(fail){});
 }
