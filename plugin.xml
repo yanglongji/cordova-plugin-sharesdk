@@ -175,10 +175,10 @@
                 </dict>
             </array>
         </config-file>
-        <config-file target="*-Info.plist">
-            <key>MOBAppKey</key>
+        <config-file target="*-Info.plist" parent="MOBAppKey">
             <string>$SHARESDK_IOS_APP_KEY</string>
-            <key>MOBAppSecret</key>
+        </config-file>
+        <config-file target="*-Info.plist" parent="MOBAppSecret">
             <string>$SHARESDK_IOS_APP_SECRET</string>
         </config-file>
         <!-- ShareSDK -->
