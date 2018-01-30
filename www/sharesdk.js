@@ -8,6 +8,10 @@ sharesdkExport.share = function (platformType, shareType, shareInfo, success, fa
   cordova.exec(success, fail, 'ShareSDK', 'share', [platformType, shareType ,shareInfo])
 };
 
+sharesdkExport.login = function (clientType, success, fail) {
+  cordova.exec(success, fail, 'ShareSDK', 'login', [clientType])
+};
+
 sharesdkExport.isInstallClient = function (clientType, success, fail) {
   cordova.exec(success, fail, 'ShareSDK', 'isInstallClient', [clientType])
 };

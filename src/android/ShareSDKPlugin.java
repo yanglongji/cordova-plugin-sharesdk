@@ -116,9 +116,40 @@ public class ShareSDKPlugin extends CordovaPlugin {
             int clientType = args.optInt(0);
             isInstallClient(clientType, callbackContext);
             return true;
+        }else if (action.equals("login"))
+        {
+          login(callbackContext);
         }
         return false;
     }
+
+  private void login(final CallbackContext paramCallbackContext)
+  {
+    Platform localPlatform = null;
+    localPlatform = ShareSDK.getPlatform(Wechat.NAME);
+    localPlatform.SSOSetting(false);
+    localPlatform.setPlatformActionListener(new PlatformActionListener() {
+
+      @Override
+      public void onComplete(Platform platform, int i, HashMap<String, Object> hashMap) {
+        paramCallbackContext.success(new JSONObject(hashMap));
+      }
+
+      @Override
+      public void onError(Platform arg0, int arg1, Throwable arg2) {
+        // TODO Auto-generated method stub
+        arg2.printStackTrace();
+      }
+
+
+      @Override
+      public void onCancel(Platform arg0, int arg1) {
+        // TODO Auto-generated method stub
+
+      }
+    });
+    localPlatform.showUser(null);
+  }
 
     private void share(int platformType, int shareType, JSONObject shareInfo, CallbackContext callbackContext) {
 
