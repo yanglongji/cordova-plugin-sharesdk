@@ -124,6 +124,20 @@ int const QQ_CLIENT = 3;
     [self.commandDelegate sendPluginResult:pluginResult callbackId:_command.callbackId];
 }
 
+- (void)login:(CDVInvokedUrlCommand *)command{
+    [ShareSDK getUserInfo:SSDKPlatformTypeWechat onStateChanged:^(SSDKResponseState state, SSDKUser *user, NSError *error)
+     {
+         if (state == SSDKResponseStateSuccess)
+         {
+             [self.commandDelegate sendPluginResult:[CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:[user rawData]] callbackId:command.callbackId];
+         }
+         else
+         {
+             NSLog(@"%@",error);
+         }
+     }];
+}
+
 - (void)share:(CDVInvokedUrlCommand*)command
 {
     _command = command;
