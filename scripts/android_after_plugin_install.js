@@ -2,6 +2,7 @@ module.exports = function(context) {
 
     var cordova_util = context.requireCordovaModule("cordova-lib/src/cordova/util"),
         ConfigParser = context.requireCordovaModule('cordova-common').ConfigParser,
+        path = require('path'),
         fs = require('fs');
 
     var xml = cordova_util.projectConfig(context.opts.projectRoot);
@@ -9,6 +10,7 @@ module.exports = function(context) {
 
     var packageName = cfg.packageName();
 
+    var androidPlatformDir = path.join(context.opts.projectRoot,'platforms', 'android');
     var cordova7 = path.join(androidPlatformDir, 'app', 'src', 'main', 'res', 'xml', 'config.xml');
     var wxapiPath = context.opts.projectRoot + '/platforms/android/' + (fs.existsSync(cordova7) ? 'app/src/main/java' : 'src') + '/' + packageName.replace(/\./g, '/') + '/wxapi';
     var WXEntryActivityPath = wxapiPath + '/WXEntryActivity.java';
