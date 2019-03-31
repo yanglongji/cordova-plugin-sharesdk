@@ -9,7 +9,8 @@ module.exports = function(context) {
 
     var packageName = cfg.packageName();
 
-    var wxapiPath = context.opts.projectRoot + '/platforms/android/src/' + packageName.replace(/\./g, '/') + '/wxapi';
+    var cordova7 = path.join(androidPlatformDir, 'app', 'src', 'main', 'res', 'xml', 'config.xml');
+    var wxapiPath = context.opts.projectRoot + '/platforms/android/' + (fs.existsSync(cordova7) ? 'app/src/main/java' : 'src') + '/' + packageName.replace(/\./g, '/') + '/wxapi';
     var WXEntryActivityPath = wxapiPath + '/WXEntryActivity.java';
 
     fs.readFile(context.opts.projectRoot + '/plugins/cordova-plugin-sharesdk/src/android/ShareSDK/src/behring/cordovasharesdk/wxapi/WXEntryActivity.java', 'utf8', function(err, data) {
