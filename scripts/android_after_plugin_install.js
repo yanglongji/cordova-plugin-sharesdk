@@ -2,7 +2,7 @@ module.exports = function(context) {
 
     var cordova_util = context.requireCordovaModule("cordova-lib/src/cordova/util"),
         ConfigParser = context.requireCordovaModule('cordova-common').ConfigParser,
-        fs = context.requireCordovaModule('fs');
+        fs = require('fs');
 
     var xml = cordova_util.projectConfig(context.opts.projectRoot);
     var cfg = new ConfigParser(xml);
