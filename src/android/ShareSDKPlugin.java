@@ -119,6 +119,7 @@ public class ShareSDKPlugin extends CordovaPlugin {
         }else if (action.equals("login"))
         {
           login(callbackContext);
+            return true;
         }
         return false;
     }
